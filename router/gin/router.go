@@ -114,10 +114,6 @@ func (r ginRouter) registerKrakendEndpoints(endpoints []*config.EndpointConfig) 
 
 func (r ginRouter) registerKrakendEndpoint(method, path string, handler gin.HandlerFunc, totBackends int) {
 	method = strings.ToTitle(method)
-	if method != http.MethodGet && totBackends > 1 {
-		r.cfg.Logger.Error(method, "endpoints must have a single backend! Ignoring", path)
-		return
-	}
 	switch method {
 	case http.MethodGet:
 		r.cfg.Engine.GET(path, handler)
