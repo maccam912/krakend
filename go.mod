@@ -1,4 +1,4 @@
-module github.com/devopsfaith/krakend
+module github.com/maccam912/krakend
 
 go 1.13
 
